@@ -13,11 +13,10 @@ datasource db {
 model User {
   id       String    @id @default(uuid())
   name     String
-  email    String
   bookings Booking[]
 }
 
-model BarberShop {
+model Barbershop {
   id       String    @id @default(uuid())
   name     String
   address  String
@@ -31,7 +30,7 @@ model Service {
   name         String
   price        Decimal    @db.Decimal(10, 2)
   barbershopId String
-  barbershop   BarberShop @relation(fields: [barbershopId], references: [id])
+  barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   description  String
   bookings     Booking[]
 }
@@ -42,8 +41,8 @@ model Booking {
   status       String
   userId       String
   serviceId    String
-  berbershopId String
+  barbershopId String
   user         User       @relation(fields: [userId], references: [id])
   service      Service    @relation(fields: [serviceId], references: [id])
-  barbershop   BarberShop @relation(fields: [berbershopId], references: [id])
+  barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
 }
