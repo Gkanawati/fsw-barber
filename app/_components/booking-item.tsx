@@ -1,17 +1,36 @@
 "use client"
 
-import { Booking, Prisma } from '@prisma/client';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Badge } from './ui/badge';
-import { Card, CardContent } from './ui/card';
+import { useState } from 'react';
+import Image from 'next/image';
 import { format, isPast } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
-import Image from 'next/image';
-import { Button } from './ui/button';
+import { Prisma } from '@prisma/client';
 import { cancelBooking } from '../_actions/cancel-booking';
 import { toast } from 'sonner';
-import { useState } from 'react';
+import { Badge } from './ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
+} from './ui/sheet';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from './ui/alert-dialog';
 import { Loader2 } from 'lucide-react';
 
 interface BookingItemProps {
@@ -44,7 +63,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Card className='min-w-full'>
+        <Card className='min-w-[99%]'>
           <CardContent className='flex p-0'>
             <div className='pl-5 py-5 flex flex-col flex-[3] gap-2'>
               <Badge variant={isBookingFinished ? 'secondary' : 'default'} className='w-fit'>
@@ -151,10 +170,30 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 Voltar
               </Button>
             </SheetClose>
-            <Button onClick={handleCancelClick} disabled={isBookingFinished || isDeleteLoading} className='w-full' variant='destructive'>
-              {isDeleteLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
-              Cancelar Reserva
-            </Button>
+
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button disabled={isBookingFinished || isDeleteLoading} className='w-full' variant='destructive'>
+                  Cancelar Reserva
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className='w-[90%]'>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Cancelar Reserva</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Tem certeza que deseja cancelar esse agendamento?
+                    <br /> Essa ação não poderá ser desfeita.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter className='flex-row gap-3'>
+                  <AlertDialogCancel className='w-full mt-0'>Voltar</AlertDialogCancel>
+                  <AlertDialogAction className='w-full' disabled={isDeleteLoading} onClick={handleCancelClick}>
+                    {isDeleteLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+                    Confirmar
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </SheetFooter>
         </div>
       </SheetContent>
