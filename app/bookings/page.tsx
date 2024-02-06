@@ -69,6 +69,10 @@ export default async function BookingsPage() {
             </div>
           </>
         }
+
+        {confirmedBookings.length === 0 && finishedBookings.length === 0 &&
+          <p className='text-center text-gray-400 mt-6'>Você ainda não possui agendamentos.</p>
+        }
       </div>
     </>
   )
