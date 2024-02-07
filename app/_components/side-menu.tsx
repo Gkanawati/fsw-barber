@@ -6,9 +6,11 @@ import { Avatar, AvatarImage } from './ui/avatar';
 import { SheetHeader, SheetTitle } from './ui/sheet';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { LogOutIcon, UserIcon, LogInIcon, HomeIcon, CalendarIcon } from 'lucide-react';
+import Image from 'next/image';
 
 const SideMenu = () => {
   const { data } = useSession();
+  console.log('SideMenu ~ data:', data);
 
   function handleSignOut() {
     signOut();
@@ -27,9 +29,11 @@ const SideMenu = () => {
       {data?.user ? (
         <div className="flex justify-between items-center py-6 px-5">
           <div className='flex items-center gap-3'>
-            <Avatar>
-              <AvatarImage src={data.user?.image ?? ""} />
-            </Avatar>
+            {data.user.image && (
+              <Avatar>
+                <AvatarImage src={data.user.image} alt={data.user.name || ""} />
+              </Avatar>
+            )}
 
             <h2 className="font-bold">
               {data.user?.name}
