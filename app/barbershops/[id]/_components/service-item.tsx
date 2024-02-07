@@ -40,7 +40,6 @@ const ServiceItem = ({ service, barbershop, isAuthenticated }: ServiceItemProps)
 
     async function refreshAvailableHours() {
       const availableBookings = await getDayBookings(date!, barbershop.id);
-      console.log('refreshAvailableHours ~ availableBookings:', availableBookings);
       setDayBookings(availableBookings);
     }
     refreshAvailableHours()
@@ -172,7 +171,7 @@ const ServiceItem = ({ service, barbershop, isAuthenticated }: ServiceItemProps)
                     onSelect={handleDateClick}
                     className="mt-3"
                     locale={ptBR}
-                    fromDate={new Date()}
+                    // fromDate={new Date()}
                     styles={{
                       head_cell: {
                         width: '100%',
@@ -201,6 +200,11 @@ const ServiceItem = ({ service, barbershop, isAuthenticated }: ServiceItemProps)
                   {date && (
                     <div className="flex gap-3 py-6 px-5 border-y border-solid border-secondary
                     overflow-x-auto [&::-webkit-scrollbar]:hidden">
+                      {timeList.length === 0 && (
+                        <p className="text-center w-full text-sm text-gray-400">
+                          Nenhum horário disponível
+                        </p>
+                      )}
                       {timeList.map((time) => (
                         <Button
                           key={time}
