@@ -1,4 +1,13 @@
-import { setHours, setMinutes, format, addMinutes, addHours, isToday, isPast, setSeconds } from "date-fns";
+import { 
+  setHours, 
+  setMinutes, 
+  format, 
+  addMinutes, 
+  addHours, 
+  isToday, 
+  isPast, 
+  setSeconds 
+} from "date-fns";
 
 function roundToNearestHalfHour(date: Date): Date {
   const minutes = date.getMinutes() > 30 ? 0 : 30;
@@ -17,8 +26,14 @@ export function generateDayTimeList(date: Date): string[] {
   
   if (isToday(date)) {
     const potentialStartTime = roundToNearestHalfHour(addHours(new Date(), 1)); // Set start time to current time + 1 hour
+
+    if (potentialStartTime.getDate() > date.getDate()) {
+      // If the potential start time is in the next day, set it to 09:00
+      return [];
+    }
+
     if (potentialStartTime.getHours() >= 9) {
-      startTime = potentialStartTime; // Set start time to 09:00
+      startTime = potentialStartTime;
     }
   }
 
