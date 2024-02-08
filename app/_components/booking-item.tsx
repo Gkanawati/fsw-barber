@@ -32,6 +32,7 @@ import {
   AlertDialogTrigger
 } from './ui/alert-dialog';
 import { Loader2 } from 'lucide-react';
+import { BookingInfo } from './booking-info';
 
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{
@@ -130,38 +131,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           </Badge>
 
           <div className="py-3 border-t border-solid border-secondary">
-            <Card>
-              <CardContent className='p-3 flex flex-col gap-3'>
-                <div className="flex justify-between items-center">
-                  <h2 className='font-bold'>{booking.service.name}</h2>
-                  <h3 className="font-bold text-sm">
-                    {Intl.NumberFormat('pt-BR', {
-                      style: 'currency',
-                      currency: 'BRL'
-                    }).format(Number(booking.service.price))}
-                  </h3>
-                </div>
-
-                <div className="flex justify-between">
-                  <h3 className="text-gray-400 text-sm">Data</h3>
-                  <h4 className={`text-sm ${booking.date ? '' : 'text-gray-400'}`}>
-                    {booking.date ? format(booking.date, "dd 'de' MMMM", { locale: ptBR }) : "-"}
-                  </h4>
-                </div>
-
-                <div className="flex justify-between">
-                  <h3 className="text-gray-400 text-sm">Horário</h3>
-                  <h4 className={`text-sm ${booking.date ? '' : 'text-gray-400'}`}>
-                    {format(booking.date, 'HH:mm') ?? "-"}
-                  </h4>
-                </div>
-
-                <div className="flex justify-between">
-                  <h3 className="text-gray-400 text-sm">Barbearia</h3>
-                  <h4 className="text-sm">{booking.barbershop.name}</h4>
-                </div>
-              </CardContent>
-            </Card>
+            <BookingInfo booking={booking} />
           </div>
 
           <SheetFooter className='flex-row w-full gap-3 mt-6'>
