@@ -59,19 +59,19 @@ npm run dev
 
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/81086fc4-2e96-4d28-90ab-fc48a89a3862' height='450' />
 
-<br/>
-<br/>
-
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/6db31e7f-16ae-4e58-993d-406c6ba3cf0b' height='450' />
+
+<br/>
+<br/>
 
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/fea70290-1b59-48a8-89fb-dd08ad759460' height='450' />
 
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/54049beb-2553-4d78-aaf1-268cbdfec803' height='450' />
 
-<br/>
-<br/>
-
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/201ab296-6a76-47c5-bd17-433bd245e3d6' height='450' />
+
+<br/>
+<br/>
 
 <img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/5d62b886-d8fa-4b1b-8937-20da559e49a6' height='450' />
 
