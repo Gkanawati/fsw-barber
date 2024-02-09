@@ -6,7 +6,6 @@ import { Avatar, AvatarImage } from './ui/avatar';
 import { SheetHeader, SheetTitle } from './ui/sheet';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { LogOutIcon, UserIcon, LogInIcon, HomeIcon, CalendarIcon } from 'lucide-react';
-import Image from 'next/image';
 
 const SideMenu = () => {
   const { data } = useSession();
@@ -17,7 +16,7 @@ const SideMenu = () => {
   }
 
   function handleSignIn() {
-    signIn("google");
+    signIn();
   }
 
   return (
