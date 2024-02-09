@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![fsw-barber-capa](https://github.com/Gkanawati/fsw-barber/assets/87530595/efdee25a-8553-40d4-8c74-6bdbfc180d84)
 
-## Getting Started
+<p align="center" style='margin-top: 20px;'>
+  <img alt="Barbershop App - A maneira mais fácil de ficar na régua!" width='240px' src="https://github.com/Gkanawati/fsw-barber/assets/87530595/6930ea67-c70f-4756-901d-89b0b81c31dd" />
+</p>
 
-First, run the development server:
+## 🚀 Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Aplicação para realizar agendamentos na sua Barbearia preferida.
+
+Frontend construído com Nextjs
+
+O Backend foi construído utilizando Prisma.
+
+Para autenticação do usuário foi utilizada a biblioteca next/auth, para realizar o login com o google. Permitindo o usuario um cadastro simples e rápido.
+
+As principais bibliotecas JS utilizadas nesse projeto são: Prisma para a construção da Backend, shadcn como biblioteca de componentes, tailwindcss para estilização, react hook form e zod para trabalhar com formulários. 📚
+
+## 💡 Tecnologias:
+
+- `Typescript`
+- `React`
+- `Next - 14`
+- `PostgresSQL`
+
+## ⚙️ Como rodar o Projeto Localmente:
+
+-Para instalar todas as bibliotecas usadas no projeto rode o comando:
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-Para inicializar o prisma: (Após conectar com o Banco)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npx prisma db push
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-Rodar arquivo seed:
 
-## Learn More
+```
+npx prisma db seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+-Para rodar o app:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📱 Telas
 
-## Deploy on Vercel
+<div align='center' style="justify-content: center; align-items: center;">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h3>Web - Versão mobile</h3>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/91dc84d6-4f55-426f-9946-e817f8551efa' height='450' />
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/81086fc4-2e96-4d28-90ab-fc48a89a3862' height='450' />
+
+<br/>
+<br/>
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/6db31e7f-16ae-4e58-993d-406c6ba3cf0b' height='450' />
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/fea70290-1b59-48a8-89fb-dd08ad759460' height='450' />
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/54049beb-2553-4d78-aaf1-268cbdfec803' height='450' />
+
+<br/>
+<br/>
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/201ab296-6a76-47c5-bd17-433bd245e3d6' height='450' />
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/5d62b886-d8fa-4b1b-8937-20da559e49a6' height='450' />
+
+<img src='https://github.com/Gkanawati/fsw-barber/assets/87530595/fad45d3e-0ba7-4728-9616-cdf125b3c767' height='450' />
+
+</div>
