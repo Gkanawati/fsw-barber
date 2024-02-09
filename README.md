@@ -49,6 +49,10 @@ npx prisma db seed
 npm run dev
 ```
 
+## 🔗 Link do Projeto:
+
+https://fsw-barber-gkanawati.vercel.app/
+
 ## 📱 Telas
 
 <div align='center' style="justify-content: center; align-items: center;">
